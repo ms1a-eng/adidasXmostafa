@@ -1,2 +1,3 @@
 # progress-quo
-# Mostaga ist dumm 
+# Mostaga ist sehr dumm 
+
