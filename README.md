@@ -1,1 +1,1 @@
-// Hier kann man die Algemeine idee sowie Struktur des WNO rein schreiben.
+// Hier kann man die Algemeine idee sowie Struktur des WNO rein schreiben!
