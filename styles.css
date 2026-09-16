@@ -5,7 +5,9 @@
     --elgant-line: rgba(255,255,255, 0.5);
     --smooth-transition: transform 0.6, cubic-bezier(0.16, 1, 0.3, 1);
 }
-
+*, *::before, *::after{
+    box-sizing: border-box;
+}
 
 @font-face {
     font-family: "adifont";
@@ -39,3 +41,25 @@ body
     transform: var(--smooth-transition);
 }
 
+.nav-button button{
+    margin-top: "100px";
+}
+
+.cards-container{
+    display: flex;
+    flex-flow: row nowrap;
+
+    justify-content: center space-around; 
+}
+
+.card{
+    display: flex; 
+    flex-flow: column nowrap;
+    height: "300px";
+}
+
+.media{
+    width:"100%";
+    aspect-ratio:"2/1";
+    object-fit: "cover";
+}
