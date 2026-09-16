@@ -33,7 +33,6 @@ body
     height: 36px;
 }
 
-
 #cs50 /*später!*/
 {
     width: 700px;
@@ -41,15 +40,9 @@ body
     transform: var(--smooth-transition);
 }
 
-.nav-button button{
-    margin-top: "100px";
-}
-
 .cards-container{
     display: flex;
-    flex-flow: row nowrap;
-
-    justify-content: center space-around; 
+    flex-flow: row nowrap; 
 }
 
 .card{
