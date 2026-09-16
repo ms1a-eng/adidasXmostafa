@@ -1,4 +1,37 @@
-.nav-button button
+@font-face {
+    font-family: "adifont";
+    font-weight: bold;
+    src: url(schrift/adineuepro-boldweb.woff) format("woff");
+}
+@font-face {
+    font-family: "adifont";
+    font-weight: normal;
+    src: url(schrift/adineuepro-regularweb.woff) format("woff");
+}
+
+body
 {
-margin-top: "100px";
+    background-color: var(--bg-main);
+    color: var(--text-color);
+    font-family: "adifont", sans-serif;
+}
+
+.githubIcon 
+{
+    width: 36px;
+    height: 36px;
+}
+
+
+#cs50 /*später!*/
+{
+    transform: var(--smooth-transition);
+}
+
+:root
+{
+    --bg-main: #0e0e0e;
+    --text-color: white;
+    --elgant-line: rgba(255,255,255, 0.5);
+    --smooth-transition: transform 0.6, cubic-bezier(0.16, 1, 0.3, 1);
 }
