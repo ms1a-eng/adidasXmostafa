@@ -1,3 +1,12 @@
+:root
+{
+    --bg-main: #0e0e0e;
+    --text-color: white;
+    --elgant-line: rgba(255,255,255, 0.5);
+    --smooth-transition: transform 0.6, cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
 @font-face {
     font-family: "adifont";
     font-weight: bold;
@@ -25,13 +34,8 @@ body
 
 #cs50 /*später!*/
 {
+    width: 700px;
+    height: 350px;
     transform: var(--smooth-transition);
 }
 
-:root
-{
-    --bg-main: #0e0e0e;
-    --text-color: white;
-    --elgant-line: rgba(255,255,255, 0.5);
-    --smooth-transition: transform 0.6, cubic-bezier(0.16, 1, 0.3, 1);
-}
