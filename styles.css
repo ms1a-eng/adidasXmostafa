@@ -30,7 +30,7 @@ body
 .githubIcon 
 {
     width: 36px;
-    height: 100px;
+    height: 36px;
 }
 
 #cs50 /*später!*/
@@ -48,8 +48,11 @@ body
 
 .card{
     display: flex; 
-    flex-flow: column nowrap;   
+    flex-flow: column nowrap;
+    
+    /*flex-basis: "300px";   Test */
 }
+
 
 /*
 .card .active{
