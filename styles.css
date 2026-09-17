@@ -5,27 +5,31 @@
     --elgant-line: rgba(255,255,255, 0.5);
     --transition-slow: 3s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-fast: 1s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-mid: 2s cubic-bezier(0.16, 1, 0.3, 1);
 }
-*, *::before, *::after{
+*, *::before, *::after
+{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-@font-face {
+@font-face 
+{
     font-family: "adifont";
     font-weight: bold;
     
     src: url(schrift/adineuepro-boldweb.woff) format("woff");
 }
 
-@font-face {
+@font-face 
+{
     font-family: "adifont";
     font-weight: normal;
     src: url(schrift/adineuepro-regularweb.woff) format("woff");
 }
 
-body
+body 
 {
     background-color: var(--bg-main);
     color: var(--text-color);
@@ -34,13 +38,13 @@ body
 
 .githubIcon
 {
-    transition: transform  var(--transition-fast); 
-    width: 36px;
-    height: 36px;
+    transition: transform  var(--transition-mid); 
+    width: 30px;
+    height: 30px;
 }
-.githubIcon:hover
-{
-transform: scale(1.05);
+
+.githubIcon:hover{
+    transform: scale(1.10);
 }
 
 
@@ -49,22 +53,24 @@ transform: scale(1.05);
     display: flex;
     flex-flow: row nowrap; 
     justify-content: center;
-    outline: 5px solid rgb(255, 0, 0);
+    /*outline: 5px solid rgb(255, 0, 0);*/
 }
 
-.card{
+.card
+{
     display: flex; 
     flex-flow: column nowrap;
     flex: 0 0 550px;
     width: 550px ;
     background-color: var(--bg-main);
-    outline: 5px solid rgb(38, 0, 255);
+   /* outline: 5px solid rgb(38, 0, 255);*/
     transition: transform var(--transition-slow),
                 opacity 1s ease,
                 filter 1s ease;
 }
 
-.card .media {
+.card .media 
+{
     width: 100%;
     height: 250px;
 }
@@ -91,9 +97,6 @@ filter: blur(0px);
 transform: scale(1.05);
 }
 
-
-
-
 /*
 
 wenn das fester sich kleiner als ..px ist dann wird ein zeilenumruch gemacht.
@@ -111,3 +114,49 @@ wenn das fester sich kleiner als ..px ist dann wird ein zeilenumruch gemacht.
     height: "300px"; 
 }
 */
+
+
+
+
+.project .project-media img
+{
+    width: 20rem;
+    height: 15rem;
+    object-fit: cover;
+}
+
+.project-slider
+{
+    display: flex;
+    outline: 5px solid var(--elgant-line);
+    width: fit-content; 
+    margin:  auto; 
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+/*.project-slider:hover 
+{
+   transform: scale(0.95);
+   filter: blur(10px);
+   opacity: 0.5;
+}*/
+
+.project
+{
+    transition: transform 1s ease,
+                opacity 1s ease,
+                filter 1s ease;
+}
+.project-slider:hover .project
+{
+    transform: scale(0.95);
+    opacity: 0.5;
+}
+.project-slider .project:hover
+{
+    transform: scale(1.05);
+    filter: blur(0px);
+    opacity: 1;
+}
+
