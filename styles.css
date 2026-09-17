@@ -32,7 +32,6 @@ body
 .card{
     display: flex; 
     flex-flow: column nowrap;
-    overflow-x: hidden;
     
     /*flex-basis: "300px";   Test */
 }
