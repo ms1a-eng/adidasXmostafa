@@ -1,23 +1,5 @@
-:root
-{
-    --bg-main: #0e0e0e;
-    --text-color: white;
-    --elgant-line: rgba(255,255,255, 0.5);
-    --smooth-transition: transform 0.6, cubic-bezier(0.16, 1, 0.3, 1);
-}
 *, *::before, *::after{
     box-sizing: border-box;
-}
-
-@font-face {
-    font-family: "adifont";
-    font-weight: bold;
-    src: url(schrift/adineuepro-boldweb.woff) format("woff");
-}
-@font-face {
-    font-family: "adifont";
-    font-weight: normal;
-    src: url(schrift/adineuepro-regularweb.woff) format("woff");
 }
 
 body
@@ -44,26 +26,42 @@ body
     display: flex;
     flex-flow: row nowrap; 
     align-items: flex-end;
+
 }
 
 .card{
     display: flex; 
     flex-flow: column nowrap;
+    overflow-x: hidden;
     
     /*flex-basis: "300px";   Test */
 }
 
+.card .media {
+    width: 735px;
+    aspect-ratio: 2/1;
+}
+
+.card .media img{
+    width: 735px;
+    height: 366px;
+    object-fit: cover;
+}
 
 /*
+
+wenn das fester sich kleiner als ..px ist dann wird ein zeilenumruch gemacht.
+
+@media screen and (max-width: 100px) {
+    .cards-container{  
+      flex-flow: column wrap; 
+    }
+  }
+
+
 .card .active{
     display: flex;
     flex-flow: column nowrap;
     height: "300px"; 
 }
 */
-
-.media{
-    width:"100%";
-    aspect-ratio:"2/1";
-    object-fit: "cover";
-}
