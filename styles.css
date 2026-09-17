@@ -39,18 +39,22 @@ body
 .cards-container{
     display: flex;
     flex-flow: row nowrap; 
-    align-items: flex-end;
+    justify-content: center;
+    outline: 5px solid rgb(255, 0, 0);
 }
 
 .card{
     display: flex; 
     flex-flow: column nowrap;
-    flex: 0 0 500px;
+    flex: 0 0 550px;
+    width: 550px ;
+    background-color: var(--bg-main);
+    outline: 5px solid rgb(38, 0, 255);
 }
 
 .card .media {
     width: 100%;
-    aspect-ratio: 2/1;
+    height: 250px;
 }
 
 .card .media img{
