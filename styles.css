@@ -67,12 +67,15 @@ body
 transform: scale(1.10);
 }
 
-.cards-container
+.swiper-slide
 {
     margin-top: 100px;
     display: flex;
+    margin: 0px auto;
+    width: fit-content;
     flex-flow: row nowrap; 
     justify-content: center;
+    gap: 40px;
 }
 
 .card
@@ -101,62 +104,19 @@ transform: scale(1.10);
     object-fit: cover;
 }
 
-.cards-container:hover .card
+.swiper-slide:hover .card
 {
     opacity: 0.4;
     filter: blur(1px);
-    transform: scale(0.95);
+    transform: scale(0.98);
 }
 
-.cards-container .card:hover
+.swiper-slide .card:hover
 {
     opacity: 1;
     filter: blur(0px);
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
-
-
-.Test-container{
-    margin: 50px auto;
-    display: flex; 
-    flex-direction: row;
-    gap: 20px;
-    justify-content: center;
-}
-
-.Test-container:hover .Test-card{
-    opacity: 0.5;
-    transform: scale(0.95);
-}
-
-.Test-card{
-    display: flex; 
-    flex-direction: column;
-    height: 275;
-    width: 550px;
-    padding: 10px; 
-    background-color: #ffffff;
-    transition: transform var(--transition-mid),
-            opacity 1.5s ease; 
-
-}
-.Test-container .Test-card:hover {
-    opacity: 1;
-    transform: scale(1.05);
-}
-
-
-.Test-media{
-    width: 100%;
-    height: 225px;
-}
-
-.Test-media img{
-    width: 100%;
-    height: 100% ;
-    object-fit: cover;
-}
-
 
 
 
@@ -202,3 +162,9 @@ transform: scale(1.10);
     opacity: 1;
 }
 
+#mainvid
+{
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+}
