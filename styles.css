@@ -1,13 +1,17 @@
 :root
 {
-    --bg-main: black; 
+    --bg-main: black;
     --dark-grey: #0e0e0e;
     --text-color:white; 
     --elgant-line: rgba(255,255,255, 0.5);
     --transition-formula: cubic-bezier(0.16, 1, 0.3, 1);
-    --text-size: clamp(19px, 3vh, 25px);
-    --title-size: clamp(16px, 3vh, 16.5px)
+    --title-size: clamp(16px, 3vw, 25px);
+    --text-size: clamp(10px, 1.5vw, 16.5px);
 }
+html{
+    scroll-behavior: smooth;
+}
+
 *, *::before, *::after
 {
     box-sizing: border-box;
@@ -29,6 +33,8 @@
     src: url(schrift/adineuepro-regularweb.woff) format("woff");
 }
 
+/*              BODY SETTINGS                */
+
 body 
 {
     background-color: var(--bg-main);
@@ -36,61 +42,152 @@ body
     font-family: "adifont", sans-serif;
 }
 
-.mainphoto img
-{
-    width: 75vw;
-    object-fit: cover;
-}
-.icons
-{
-    width: fit-content; 
-    margin: 10px auto ;
-    gap: 20px;
+/*              NAVBAR SETTINGS               */
+.header-container{
+    z-index: 100;
+    top: 0;
+    position: sticky;
 }
 
-.githubIcon, .NotionIcon
+.navbar
+{
+  position: relative;
+  top: 0px;
+  z-index: 2;
+  background-color: rgb(8 8 8 / 80%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /*Best-Practice nicht alle Browser versionen Unterstützen backdrop-filter (Apple)*/
+  border-bottom: 1px solid var(--elgant-line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75px;
+  padding: 0 24px;
+}
+
+.nav-left
+{
+    flex: 1; /* create a box based on the free space */
+}
+
+.nav-left .return-button
+{
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: var(--title-size); 
+}
+
+.nav-center
+{
+    font-size: var(--text-size);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.nav-center .nav-switch-toggle
+{
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    padding: 0;
+    font-size: clamp(15px, 3vw, 24px);
+}
+
+.nav-menu{
+    position: absolute;
+    display: flex;
+    top: 100%;
+    width: 100%;
+    height: 400px;
+    pointer-events: none;
+    background-color:rgba(43, 43, 43, 1);
+    transform: translateY(-400px);
+    justify-content: center;
+    align-items: center;
+    gap: clamp(25px, 3vw, 35px);
+    transition: transform 2s var(--transition-formula),
+                opacity 2s,
+                background-color 2s; 
+    z-index: 1;
+}
+
+.nav-menu.is-open
+{
+    pointer-events: auto;
+    transform: translateY(0px);
+}
+
+.nav-menu-box  
+{
+    display: flex;
+    color: var(--text-color);
+    font-size: clamp(20px, 3vw, 35px);
+    text-decoration: none;
+    height: 55%;
+    aspect-ratio: 2/1;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+}
+
+.nav-menu-box:hover
+{
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.nav-right
+{
+    flex: 1;  /* create a box based on the free space */
+    display: flex; /* flex on the paraent wouldnt suffice, since the it has div childs*/
+    justify-content: flex-end;
+    gap: clamp(8px, 1.3%, 12px);
+}
+
+.nav-icon
 {
     transition: transform 2s var(--transition-formula); 
-    width: clamp(28px, 3vw, 45px);
+    width: clamp(25px, 3vw, 35px);
     aspect-ratio: 1/1;
 }
-.githubIcon:hover, .NotionIcon:hover
+
+.nav-icon:hover
 {
-transform: scale(1.10);
+    transform: scale(1.08);
 }
+
+/*              SWIPER SETTINGS                */
 
 .swiper
 {
     padding-bottom: clamp(5px,2vh,30px);
-    padding-top: clamp(5px,2vh,30px);
     padding-left: clamp(6px, 20vw, 480px);
 }
 
+
+/*              CARD SETTINGS                */
 
 .card
 {
     position: relative;
     cursor: pointer;
-    border-radius: 8px;
     overflow: hidden;
     width: clamp(40px, 30vw, 520px);
     transition: transform 2s var(--transition-formula),
-                   filter 1s var(--transition-formula);
-
+    filter 1s var(--transition-formula);
 }
 
 
-/*.card-label
-{
-    position: absolute; 
-    bottom: clamp(5px, 5%, 50px);
-    left: clamp(10px, 8%, 40px);
-}*/
+
+/*              CARD MEDIA                */
 
 .card .media 
 { 
     width: 100%;
     aspect-ratio: 4.5/2.5;
+    overflow: hidden;
+    border-radius: clamp(4px, 1%, 9px);
 }
 .card .media img
 {
@@ -106,34 +203,78 @@ transform: scale(1.10);
     transform: scale(1.05);
 }
 
+/*              COLLECTION NAME                */
+
 .collectionName
 {
-    margin-bottom: clamp(10px, 2vh, 30px);
-    font-size: clamp(1.1rem, 2.3vw, 2.5rem);
+    margin: clamp(10px, 2vh, 30px) 0px clamp(10px, 2vh, 30px) 0px;
+    font-size: clamp(10px, 2.3vw, 2.5rem);
     letter-spacing: 2px;
     text-transform: uppercase;
     line-height: 1;
 }
 
-.card-content
+
+/*              CARD CONTENT                */
+
+.card-content 
 {
-    display: none;
     opacity: 0;
-    transform: translateY(25px); /*noch angucken*/
-    transition: opacity 0.6 var(--transition-formula), 
-                transform 0.6 var(--transition-formula); 
+    max-height: 0;
+    overflow: hidden;
+    transform: translateY(25px);
+    transition: opacity 0.6s var(--transition-formula), 
+                transform 0.6s var(--transition-formula),
+                filter 0.6s var(--transition-formula),
+                max-height 0.6s var(--transition-formula); 
     margin-top: 15px;
-    /*pointer-events: none; /* das alles was angegklickt ist das nicht der content ist nichts macht */
 }
 
-.card-content .title{
+.card-content .title 
+{
     font-size: var(--title-size);
-    color: var(--text-color);
-    letter-spacing: 1;
     text-transform: uppercase;
+    color: var(--text-color);
+    letter-spacing: 1px;
 }
 
-.card-content .text{
+.card-content .text
+{
     font-size: var(--text-size);
-    color: rgba(var(--text-color), 0.5);
+    color: rgba(255, 255, 255, 0.85);
 }
+
+
+/*              MAGAZINE LOGIC                */
+
+
+.swiper.is-magazine .card:not(.is-active)
+{
+    filter: blur(20px);
+    opacity: 0.4;
+}
+.swiper.is-magazine .card.is-active
+{
+    filter: blur(0px);
+    opacity: 1; 
+}
+
+.swiper.is-magazine .card.is-active .card-content
+{
+    max-height: 300px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mid-page {
+    height: 100vh;
+    padding: 40px;
+    border-top: 1px solid var(--elgant-line);
+}
+
+
+
+/*
+TODO 1: ON THE LEFT CORNER THE "HAMBURGER" 3 BARS (DESIGN / LINES)
+TODO 2: MIDDLE ARROW/ DESIGN FOR THE "DOCUMENTS" SECTION
+*/
