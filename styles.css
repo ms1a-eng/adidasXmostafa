@@ -129,7 +129,7 @@ body
 
 .nav-center span
 {
-    font-size: var(--text-size);
+    font-size: clamp(13px, 2vw, 20px);
     text-transform: uppercase;
     letter-spacing: 0.1em; /* 0.1 * var(--text-size) */
 }
