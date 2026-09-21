@@ -1,10 +1,16 @@
 from flask import Flask, request, jsonify
 import sqlite3
+import time
+
+last_ping = 0 #defining a global varuable
 
 app = Flask(__name__)
 
 @app.route("/api/save", methods=["POST", "OPTIONS"])
 def save(): 
+    global last_ping
+    last_ping = time.time() #saving the time where save got called
+
     if request.method == "OPTIONS":
         return ("", 204)
     
@@ -42,7 +48,6 @@ def save():
 
 @app.route("/api/get")
 def get():
-
     search = request.args.get("name")
 
     database = sqlite3.connect("data.db")
@@ -56,8 +61,20 @@ def get():
     result = cursor.fetchone()
     result = result[0]
 
+    cursor.execute(
+           "SELECT name FROM focustable ORDER BY id DESC LIMIT 1"
+        )
+    name = cursor.fetchone()
+    name = name[0] if name else "Standby"
+    
     database.close()
-    return jsonify({"minutes": result or 0})
+    diff = time.time() - last_ping #looking how much time has passed since the last call
+    is_online = (diff < 120) #if less than 2 min returns a true or false.
+
+    if not is_online: 
+        name = "Standby"
+
+    return jsonify({"name": name ,"minutes": result, "is_online": is_online})
 
 
 @app.after_request
@@ -69,3 +86,5 @@ def allow(response):
 
 if __name__ == "__main__":  
     app.run(port = 5001 , debug=True)
+
+   
