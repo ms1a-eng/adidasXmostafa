@@ -1,0 +1,354 @@
+:root
+{
+    --bg-main: #080808;
+    --bg-darkgrey: #121212;
+    --dark-grey: #0e0e0e;
+    --text-color:#f4f4f4; 
+    --elgant-line: rgba(255,255,255, 0.5);
+    --transition-formula: cubic-bezier(0.16, 1, 0.3, 1);
+    --title-size: clamp(16px, 3vw, 25px);
+    --text-size: clamp(10px, 1.5vw, 16.5px);
+    --line: #3b3b3b
+}
+
+.hero 
+{
+    min-height: 100vh;
+    padding: 5rem 5vw; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  
+    border-bottom: 1px solid var(--line);
+}
+
+section:nth-of-type(even)
+{
+    background: var(--bg-darkgrey);
+}
+html, body{
+    scroll-behavior: smooth;
+    /*overflow-x: hidden;*/
+}
+
+*, *::before, *::after
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face 
+{
+    font-family: "adifont";
+    font-weight: bold;
+    src: url(schrift/adineuepro-boldweb.woff) format("woff");
+}
+
+@font-face 
+{
+    font-family: "adifont";
+    font-weight: normal;
+    src: url(schrift/adineuepro-regularweb.woff) format("woff");
+}
+
+/*              BODY SETTINGS                */
+
+body 
+{
+    background-color: var(--bg-main);
+    color: var(--text-color);
+    font-family: "adifont", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*              NAVBAR SETTINGS               */
+.header-container{
+    z-index: 100;
+    top: 0;
+    position: sticky;
+}
+
+.navbar
+{
+  position: relative;
+  top: 0px;
+  z-index: 2;
+  background-color: rgb(8 8 8 / 80%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /*Best-Practice nicht alle Browser versionen Unterstützen backdrop-filter (Apple)*/
+  border-bottom: 1px solid var(--elgant-line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75px;
+  padding: 0 24px;
+}
+
+.nav-left
+{
+    flex: 1; /* create a box based on the free space */
+}
+
+.nav-left .return-button
+{
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: -.048em;
+    color: var(--text-color);
+    font-size: var(--title-size); 
+}
+
+.nav-center span
+{
+    font-size: var(--text-size);
+    text-transform: uppercase;
+    letter-spacing: 0.1em; /* 0.1 * var(--text-size) */
+}
+
+.nav-center .nav-switch-toggle
+{
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    padding: 0;
+    font-size: clamp(15px, 3vw, 24px);
+}
+
+.nav-menu{
+    position: absolute;
+    display: flex;
+    top: 100%;
+    width: 100%;
+    height: 400px;
+    pointer-events: none;
+    background-color:rgba(43, 43, 43, 1);
+    transform: translateY(-400px);
+    justify-content: center;
+    align-items: center;
+    gap: clamp(25px, 3vw, 35px);
+    transition: transform 2s var(--transition-formula),
+                opacity 2s,
+                background-color 2s; 
+    z-index: 1;
+}
+
+.nav-menu.is-open
+{
+    pointer-events: auto;
+    transform: translateY(0px);
+}
+
+.nav-menu-box  
+{
+    display: flex;
+    color: var(--text-color);
+    font-size: clamp(20px, 3vw, 35px);
+    text-decoration: none;
+    height: 55%;
+    aspect-ratio: 2/1;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+}
+
+.nav-menu-box:hover
+{
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.nav-right
+{
+    flex: 1;  /* create a box based on the free space */
+    display: flex; /* flex on the paraent wouldnt suffice, since the it has div childs*/
+    justify-content: flex-end;
+    gap: clamp(8px, 1.3%, 12px);
+}
+
+.nav-icon
+{
+    transition: transform 2s var(--transition-formula); 
+    width: clamp(25px, 3vw, 35px);
+    aspect-ratio: 1/1;
+}
+
+.nav-icon:hover
+{
+    transform: scale(1.08);
+}
+
+
+
+
+/*              CARD SETTINGS                */
+
+.card
+{
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    width: clamp(40px, 30vw, 520px);
+    transition: transform 2s var(--transition-formula),
+    filter 1s var(--transition-formula);
+}
+
+
+
+/*              CARD MEDIA                */
+
+.card .media 
+{ 
+    width: 100%;
+    aspect-ratio: 4.5/2.5;
+    overflow: hidden;
+    border-radius: clamp(4px, 1vw, 9px);
+}
+.card .media img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card:hover 
+{
+    filter:brightness(1.3);
+    transform: scale(1.05);
+}
+
+/*              COLLECTION NAME                */
+
+.collectionName
+{
+    margin: clamp(10px, 2vh, 30px) 0px clamp(10px, 2vh, 30px) 0px;
+    font-size: clamp(10px, 2.3vw, 2.5rem);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+
+/*              CARD CONTENT                */
+
+.card-content 
+{
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transform: translateY(25px);
+    transition: opacity 0.6s var(--transition-formula), 
+                transform 0.6s var(--transition-formula),
+                filter 0.6s var(--transition-formula),
+                max-height 0.6s var(--transition-formula); 
+    margin-top: 15px;
+}
+
+.card-content .title 
+{
+    font-size: var(--title-size);
+    text-transform: uppercase;
+    color: var(--text-color);
+    letter-spacing: 1px;
+}
+
+.card-content .text
+{
+    font-size: var(--text-size);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+
+/*              MAGAZINE LOGIC                */
+
+
+.swiper.is-magazine .card:not(.is-active)
+{
+    filter: blur(20px);
+    opacity: 0.4;
+}
+.swiper.is-magazine .card.is-active
+{
+    filter: blur(0px);
+    opacity: 1; 
+}
+
+.swiper.is-magazine .card.is-active .card-content
+{
+    max-height: 300px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mid-page {
+    height: 100vh;
+    padding: 40px;
+    border-top: 1px solid var(--elgant-line);
+}
+
+
+
+
+.eyebrow 
+{ 
+    font-size: 1rem;
+    margin-bottom: 5vw;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: bold;
+    text-transform: uppercase; 
+    letter-spacing: .098em;
+}
+
+h1
+{
+    font-size: clamp(8.5rem, 10vw, 15.5rem);
+    margin-bottom: 5vw;
+    letter-spacing: -0.05em; /*-0.05 of the font size*/
+    text-transform: uppercase; 
+    line-height: 0.75; 
+    max-height: 20rem;
+}
+
+h1 span
+{
+    
+    color: #e63f3f;
+}
+
+.lead
+{
+    font-size: clamp(1rem,1.3vw, 2rem);
+    line-height: 1.2;
+    color: #d0d0d0;
+    max-width: 39.5rem;
+}
+
+
+.progress-grid 
+{
+    border-left: 1px solid var(--line);
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.progress-grid li
+{
+    list-style: none;
+    min-height: 270px;
+    border-right: 1px solid var(--line); 
+    border-bottom: 1px solid var(--line);
+}
+
+
+.progress-grid h2
+{
+    margin: 2.4rem 0 1rem; 
+}
+
+.progress-grid li span
+{
+    font-weight: 600;
+}
+
