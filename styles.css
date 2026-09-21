@@ -3,12 +3,14 @@
     --bg-main: #080808;
     --bg-darkgrey: #121212;
     --dark-grey: #0e0e0e;
+    --muted-grey: #a6a6a6;
     --text-color:#f4f4f4; 
     --elgant-line: rgba(255,255,255, 0.5);
     --transition-formula: cubic-bezier(0.16, 1, 0.3, 1);
     --title-size: clamp(16px, 3vw, 25px);
     --text-size: clamp(10px, 1.5vw, 16.5px);
-    --line: #3b3b3b
+    --line: #3b3b3b;
+    --solar-green: #A3FA3D;
 }
 
 .hero 
@@ -220,15 +222,27 @@ body
 
 /*              COLLECTION NAME                */
 
-.collectionName
+.collectionName 
 {
-    margin: clamp(10px, 2vh, 30px) 0px clamp(10px, 2vh, 30px) 0px;
-    font-size: clamp(2.45rem, 5vw, 5.3rem);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    line-height: 1;
-
+    margin: clamp(10px, 1.5vw, 30px) 0px clamp(10px, 1.5vw, 30px) 0px;
 }
+
+.collectionName h2
+{
+    font-size: clamp(2.45rem, 5vw, 5.3rem);
+    letter-spacing: -.061em;
+    line-height: 1;
+}
+
+.small-lead
+{
+   /* margin: clamp(0.55rem, 1vw, 30px) 0px clamp(10px, 1vh, 30px) 0px;*/
+    /*font-size: clamp(1rem,1.3vw, 2rem);*/
+    line-height: 1.2;
+    color: #d0d0d0;
+    max-width: 20rem;
+} 
+
 
 
 /*              CARD CONTENT                */
@@ -293,18 +307,19 @@ body
 
 .eyebrow 
 { 
-    font-size: 1rem;
-    margin-bottom: 5vw;
+    font-size: 0.68rem;
+    /*margin-bottom: 5vw;*/
     color: rgba(255, 255, 255, 0.85);
     font-weight: bold;
     text-transform: uppercase; 
-    letter-spacing: .098em;
+    letter-spacing: .12em;
 }
 
 h1
 {
     font-size: clamp(8.5rem, 10vw, 15.5rem);
     margin-bottom: 5vw;
+    margin-top: 5vw;
     letter-spacing: -0.05em; /*-0.05 of the font size*/
     text-transform: uppercase; 
     line-height: 0.75; 
@@ -325,17 +340,28 @@ h1 span
     max-width: 39.5rem;
 }
 
-
+.xsmall-lead
+{
+    text-transform: lowercase;
+    font-size: clamp(0.85rem,0.68vw, 1rem);
+    line-height: 0.8;
+    color: var(--muted-grey);
+}
 .progress-grid 
 {
     border-left: 1px solid var(--line);
     border-top: 1px solid var(--line);
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat 1.6fr (2, 1fr);
 }
+
 
 .progress-grid li
 {
+    text-transform: uppercase;
+    background-color: #0e0e0e;
+    padding: 4%;
+    color:#f4f4f4;
     list-style: none;
     min-height: 270px;
     border-right: 1px solid var(--line); 
@@ -345,11 +371,27 @@ h1 span
 
 .progress-grid h2
 {
-    margin: 2.4rem 0 1rem; 
+    font-size: clamp(1.2rem, 3.3vw, 4.5rem);
 }
 
 .progress-grid li span
 {
-    font-weight: 600;
+    font-size: clamp(0.89rem, 2vw, 2.89rem);
+    text-transform: lowercase;
+    font-weight: bold;
+    color: var(--solar-green);
+
 }
 
+.status-title::before
+{
+    content:"";
+    display: inline-block; 
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    margin-right: 0.2rem;
+    margin-left: 1%;
+    background: rgb(98, 98, 98);
+    vertical-align:middle; 
+}
