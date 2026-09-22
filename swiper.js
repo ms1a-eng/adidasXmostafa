@@ -45,4 +45,5 @@ const navEl = document.querySelector(".nav-menu");
 toggle.addEventListener("click", function()
 {
     navEl.classList.toggle("is-open");
+    toggle.classList.toggle("is-open");
 });

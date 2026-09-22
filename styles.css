@@ -81,6 +81,7 @@ body
 }
 
 /*              NAVBAR SETTINGS               */
+
 .header-container{
     z-index: 100;
     top: 0;
@@ -117,6 +118,15 @@ body
     font-size: var(--title-size); 
 }
 
+.nav-center .nav-switch-toggle-arrow{
+    transition: transform 1.2s var(--transition-formula);
+    display: inline-block;
+}
+
+.nav-switch-toggle.is-open .nav-switch-toggle-arrow{
+    transform: rotate(180deg);
+}
+
 .nav-center span
 {
     font-size: var(--text-size);
@@ -132,7 +142,7 @@ body
     color: inherit;
     font: inherit;
     padding: 0;
-    font-size: clamp(15px, 3vw, 24px);
+    font-size: clamp(20px, 3vw, 24px);
 }
 
 .nav-menu{
@@ -323,8 +333,6 @@ body
     padding: 40px;
     border-top: 1px solid var(--elgant-line);
 }
-
-
 
 
 .eyebrow 
