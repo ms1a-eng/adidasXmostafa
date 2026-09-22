@@ -1,4 +1,5 @@
-
+const TOTAL_TIME = 30;
+let timeLeft = TOTAL_TIME; 
 //DRY function to not c&p. Gets two arguments, the search, and the already defined html
 function getMinute(search, html)
 {//sends a fetch, standard without any arguments a GET to the api, awaits for answer via then to translate it into a json
@@ -23,12 +24,23 @@ return answer.json(); //convert the long text/string from the server into json
 
 //for later usage to do all the following functions at once
 function update(){
-getMinute("cs50","cs50"); 
-getMinute("math", "math"); 
-getMinute("","all"); 
+    getMinute("cs50","cs50"); 
+    getMinute("math", "math"); 
+    getMinute("","all"); 
 }
-
+function tick(){
+    timeLeft = timeLeft - 1; 
+    const timerel = document.getElementById("sync-timer"); 
+    timerel.textContent= timeLeft;
+    const fillel = document.querySelector(".sync-fill");
+    const perecent = (timeLeft / TOTAL_TIME) * 100; 
+    fillel.style.width = perecent + "%";
+    if(timeLeft <= 0 ) {
+        update();
+        timeLeft = TOTAL_TIME; 
+        }
+}
 update(); 
 
-//do function update every 30sec
-setInterval(update, 30000);
+//do function update every 1sec
+setInterval(tick, 1000);

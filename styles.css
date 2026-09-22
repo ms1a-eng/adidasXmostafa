@@ -11,11 +11,21 @@
     --text-size: clamp(10px, 1.5vw, 16.5px);
     --line: #3b3b3b;
     --solar-green: #A3FA3D;
+    --solar-red: #e63f3f
 }
-
+.hero
+{
+    max-width: 1800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.data-page
+{
+    max-width: 1800px;
+}
 .hero 
 {
-    min-height: 100vh;
+    min-height: calc(100vh - 75px); /*75px from the navbar!*/
     padding: 5rem 5vw; 
     display: flex;
     flex-direction: column;
@@ -234,6 +244,9 @@ body
     line-height: 1;
 }
 
+
+
+
 .small-lead
 {
    /* margin: clamp(0.55rem, 1vw, 30px) 0px clamp(10px, 1vh, 30px) 0px;*/
@@ -314,31 +327,32 @@ body
     text-transform: uppercase; 
     letter-spacing: .12em;
 }
-
-.main-page .eyebrow 
+.h1, .eyebrow, .lead
+{
+    position: relative;
+    z-index: 1;
+}
+ /* section.hero:first-of-type .eyebrow 
 { 
     font-size: 1rem;
-    /*margin-bottom: 5vw;*/
     color: rgba(255, 255, 255, 0.85);
     font-weight: bold;
     text-transform: uppercase; 
     letter-spacing: .12em;
-}
+}  */
+
 h1
 {
-    font-size: clamp(8.5rem, 13vw, 15.5rem);
-    margin-bottom: 5vw;
-    margin-top: 5vw;
+    font-size: clamp(3.2rem, 12vw, 15.5rem);
+    margin: 5vh 0;
     letter-spacing: -0.05em; /*-0.05 of the font size*/
     text-transform: uppercase; 
     line-height: 0.75; 
-    max-height: 20rem;
 }
 
 h1 span
 {
-    
-    color: #e63f3f;
+    color: var(--solar-green);
 }
 
 .lead
@@ -366,17 +380,85 @@ h1 span
     grid-template-columns: repeat(3, 1fr);
 }
 
+/* for smartphones and the like */
+@media (max-width: 769px){
+    .progress-grid{
+        grid-template-columns: 1fr;
+    }
+}
+
+section.hero:first-of-type
+{
+    position: relative;
+    overflow: hidden;
+}
+.three-stripes
+{  
+    z-index: 0; /*stay in the background */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 15vw; 
+    display: flex;
+    gap: clamp(10px, 1vw, 18px);
+}
+
+.tech-path
+{   
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    position: relative;
+}
+.tech-path::before
+{
+    top: 0;
+    z-index: 1;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    display: block;
+    background: #d0d0d0;
+}
+.tech-dot
+{
+    position: absolute;
+
+}
+@media(max-width: 600px) { 
+    .three-stripes{
+    right: 2vw;
+    opacity: 0.65;
+    }
+}
+
+.three-stripes span
+{
+   background-color: rgba(242, 242, 242, 0.90);
+    width: clamp(12px, 2.5vw, 45px);
+   height: 100%;
+}
 
 .progress-grid li
 {
     text-transform: uppercase;
     background-color: #0e0e0e;
-    padding: 4%;
+    padding: clamp(1.5rem,3vw,2.6rem);
     color:#f4f4f4;
     list-style: none;
-    min-height: 148px;
+    min-height: 220px;
     border-right: 1px solid var(--line); 
     border-bottom: 1px solid var(--line);
+}
+
+
+@media(max-width: 500px)
+{
+    .progress-grid li {
+        min-height: 110px;
+    }
 }
 
 
@@ -393,22 +475,62 @@ h1 span
     color: var(--solar-green);
 
 }
+.progress-grid li
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
+.status-title{
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+}
 .status-title::before
 {
     content:"";
     display: inline-block; 
-    width: 0.5rem;
-    height: 0.5rem;
+    width: 0.35em;
+    height: 0.35em;
     border-radius: 50%;
     margin-right: 0.2rem;
     margin-left: 1%;
     background: rgb(98, 98, 98);
-    vertical-align:middle; 
 }
 
 .status-title.is-live::before
 {
     background: var(--solar-green);
     box-shadow: 0 0 0 4px rgb(216 255 52 / 20%);
+}
+
+.sync-panel
+{
+    border-top: none;
+    background-color: #0e0e0e;
+    padding: 1.2rem clamp(1.5rem, 3vw, 2.6rem);
+    border-bottom: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.sync-track
+{
+    height: 4px;
+    max-width: none;
+    width: 100%;
+    background-color: var(--muted-grey);
+}
+
+.sync-fill
+{
+ height: 100%;
+ width: 100%;
+ background-color: var(--solar-green);
+ transition: width 1s linear;
 }
