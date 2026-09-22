@@ -1,0 +1,12 @@
+{
+    "manifest_version": 3,
+    "name": "Lern-Tracker",
+    "version": "1.0",
+    "permissions": ["tabs", "alarms"],
+    "background":
+    {
+        "service_worker": "background.js"
+    }
+
+
+}
