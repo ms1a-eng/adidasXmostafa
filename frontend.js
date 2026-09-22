@@ -3,7 +3,7 @@ let timeLeft = TOTAL_TIME;
 //DRY function to not c&p. Gets two arguments, the search, and the already defined html
 function getMinute(search, html)
 {//sends a fetch, standard without any arguments a GET to the api, awaits for answer via then to translate it into a json
-fetch(`http://localhost:5001/api/get?name=${search}`).then(function(answer){ 
+fetch(`https://mostafa.herokuapp.com/api/get?name=${search}`).then(function(answer){ 
 return answer.json(); //convert the long text/string from the server into json 
 }).then(function(data){ //as soon as data avaliable go to the html class
     const el = document.querySelector(`.${html}`); 
