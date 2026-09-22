@@ -8,8 +8,12 @@ filter =  {"active": true, "currentWindow": true};
 const timer = chrome.alarms.create("timer", {"periodInMinutes": 1});
 console.log(`tiemr set on: ${timer}\n`);
 
+
 //check operation on alarm
-chrome.alarms.onAlarm.addListener(function(alarms){
+chrome.alarms.onAlarm.addListener(async function(alarms){
+    
+    const apidict = await chrome.storage.local.get("api-key");
+    const apiKey = apidict["api-key"];
     console.log(`in the Listener! found ${alarms.name}\n`)
     
     //check the current tabs
@@ -27,7 +31,7 @@ chrome.alarms.onAlarm.addListener(function(alarms){
                                 "method": "POST", 
                                 "headers": {
                                     "Content-Type": "application/json",
-                                    "API-KEY": "adiXm05",  
+                                    "API-KEY": apiKey,  
                                 },
                                 "body": JSON.stringify(currenttab)
                             }

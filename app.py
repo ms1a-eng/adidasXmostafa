@@ -1,29 +1,33 @@
 from flask import Flask, request, jsonify
-import sqlite3
 import time
+import os
 
-last_ping = 0 #defining a global varuable
+url = os.environ.get("DATABASE_URL")
+if url and url.startswith("postgres://"):
+    url = url.replace("postgres://", "postgresql://", 1)
+APIKey = os.environ.get("API_KEY")
+if url: 
+    import psycopg2
 
 app = Flask(__name__)
 
 @app.route("/api/save", methods=["POST", "OPTIONS"])
 def save(): 
-    global last_ping
-    last_ping = time.time() #saving the time where save got called
-
     if request.method == "OPTIONS":
         return ("", 204)
     
     currenttab = request.get_json(silent=True) #kept silent to avoid crash. The global request variable contains the json of the extension 
     key = request.headers.get("API-KEY")
-    if key != "adiXm05": 
+
+    #key not allowed to be none and not allowed to be wrong!
+    if not APIKey or key != APIKey: 
         return "unauthorized acsses.", 401
-    database = sqlite3.connect("data.db")
+    database = psycopg2.connect(url)
     cursor = database.cursor(); 
 
     cursor.execute(
         """CREATE TABLE IF NOT EXISTS focustable
-        (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, time INTEGER)
+        (id SERIAL PRIMARY KEY , name TEXT, time INTEGER, created_at DOUBLE PRECISION)
         """
     )
 
@@ -36,7 +40,7 @@ def save():
         name = currenttab["title"]
      
     cursor.execute(
-        "INSERT INTO focustable (name, time) VALUES (?, ?)", (name, 1)
+        "INSERT INTO focustable (name, time, created_at) VALUES (%s, %s, %s)", (name, 1, time.time())
     )
 
 
@@ -49,30 +53,39 @@ def save():
 @app.route("/api/get")
 def get():
     search = request.args.get("name")
-
-    database = sqlite3.connect("data.db")
+    database = psycopg2.connect(url)
     cursor = database.cursor()
-
+    cursor.execute(
+        """CREATE TABLE IF NOT EXISTS focustable
+        (id SERIAL PRIMARY KEY , name TEXT, time INTEGER, created_at DOUBLE PRECISION)
+        """
+    )
     if search:
-        cursor.execute("SELECT SUM(time) FROM focustable WHERE name = (?)", (search,))  #comma to remind python thats not just a word 
+        cursor.execute("SELECT SUM(time) FROM focustable WHERE name = (%s)", (search,))  #comma to remind python thats not just a word 
     else: 
         cursor.execute("SELECT SUM(time) FROM focustable")
     
     result = cursor.fetchone()
-    result = result[0]
+    result = result[0] or 0 
 
     cursor.execute(
-           "SELECT name FROM focustable ORDER BY id DESC LIMIT 1"
+           "SELECT name, created_at FROM focustable ORDER BY id DESC LIMIT 1"
         )
-    name = cursor.fetchone()
-    name = name[0] if name else "Standby"
-    
+    #give me the result of the execution
+    row = cursor.fetchone()
+    if row: 
+        name = row[0]
+        #the time in row index 1
+        last_time = row[1]
+    else:
+        name = "INAKTIV"
+        last_time = 0
     database.close()
-    diff = time.time() - last_ping #looking how much time has passed since the last call
-    is_online = (diff < 120) #if less than 2 min returns a true or false.
 
-    if not is_online: 
-        name = "Standby"
+    diff =  time.time() -last_time
+    is_online = (diff < 120)
+    if not is_online:
+        name = "INAKTIV"
 
     return jsonify({"name": name ,"minutes": result, "is_online": is_online})
 
@@ -86,5 +99,3 @@ def allow(response):
 
 if __name__ == "__main__":  
     app.run(port = 5001 , debug=True)
-
-   
