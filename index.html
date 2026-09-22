@@ -25,7 +25,7 @@
                 </div> 
             </div>
             <div class ="nav-menu">
-                <a class = "nav-menu-box" aria-label = "Übergang zu den Projekten" href="#" target="_blank" rel="noopener noreferrer">Wer bin ich?</a> 
+                <a class = "nav-menu-box" aria-label = "Übergang zu den Projekten" href="https://canva.link/adidasxmostafa" target="_blank" rel="noopener noreferrer">Wer bin ich?</a> 
                 <a class = "nav-menu-box" aria-label = "Übergang zu Wer Bin ich" href="Bilder/Letzten_3_Zeugnisse.pdf" target = "_blank" rel="noopener noreferrer">Zeugnis</a>
                 <a class = "nav-menu-box" aria-label = "Übergang zum Lebenslauf" href="Bilder/Lebenslauf.MSN.pdf" target = "_blank" rel="noopener noreferrer">Lebenslauf</a>
             </div>
@@ -55,7 +55,11 @@
                             <div class="media"> <img id="cs50" src="Bilder/CS50.png" alt="CS50 lecture photo"></div>
                             <div class="card-content"> 
                                 <h2 class="title">Harvard Introduction to Computer Science </h2> 
-                                <p class="text">
+                                <p class="text">CS50 wurde gewählt, um Informatik von Grund auf zu verstehen.
+                                    Der Kurs lehrte vor allem, wie man Aufgaben unabhängig von der genutzten
+                                    Technologie löst – wie man Probleme strukturiert und einzeln angeht.
+                                    Zudem war der Kurs intensiv genug, um alte Fehlkonzepte zu korrigieren
+                                    und neue Grundlagen wirklich zu verstehen.
                                 </p>  
                              </div>
                         </article>
@@ -63,16 +67,11 @@
                             <div class="media"> <img src="Bilder/MIT.png" alt="MIT house photo"></div>
                             <div class="card-content"> 
                                 <h2 class="title">MIT & Mathe </h2> 
-                                <p class="text">Ursprünglich als Auffrischung gedacht, forderte 
-                                mich der Kurs weit über den Code hinaus. Die Problem Sets erforderten ein Arbeitsniveau,
-                                das erst durch feste Routinen, absolute Konzentration und das Vorab-Planen der Logik mit Stift und 
-                                Papier möglich wurdeUrsprünglich als Auffrischung gedacht, forderte 
-                                mich der Kurs weit über den Code hinaus. Die Problem Sets erforderten ein Arbeitsniveau,
-                                das erst durch feste Routinen, absolute Konzentration und das Vorab-Planen der Logik mit Stift und 
-                                Papier möglich wurdeUrsprünglich als Auffrischung gedacht, forderte 
-                                mich der Kurs weit über den Code hinaus. Die Problem Sets erforderten ein Arbeitsniveau,
-                                das erst durch feste Routinen, absolute Konzentration und das Vorab-Planen der Logik mit Stift und 
-                                Papier möglich wurde
+                                <p class="text">OMB+ und MIT wurden gewählt, um Mathematik von Grund auf zu verstehen,
+                                    statt nur oberflächlich aufzufrischen: OMB+ zur Wiederholung der Grundlagen,
+                                    MIT für das echte Verständnis von Uni-Mathematik. Das erleichtert nicht nur
+                                    das spätere Studium, sondern macht auch komplexe Algorithmen und anspruchsvolle
+                                    Programme überhaupt erst machbar.
                                 </p>
                             </div>
                         </article>
@@ -80,10 +79,11 @@
                             <div class="media"> <img src="Bilder/TU-Darmstadt.png" alt="TU-Darmstadt house photo"></div>
                             <div class="card-content"> 
                                 <h2 class="title">TU Darmstadt</h2> 
-                                <p class="text">Ursprünglich als Auffrischung gedacht, forderte 
-                                mich der Kurs weit über den Code hinaus. Die Problem Sets erforderten ein Arbeitsniveau,
-                                das erst durch feste Routinen, absolute Konzentration und das Vorab-Planen der Logik mit Stift und 
-                                Papier möglich wurde
+                                <p class="text">TU Darmstadt wurde gewählt, um organisatorisch auf Top-Niveau zu kommen.
+                                    Lehrkräfte und Studenten betonen oft, dass die Stoffmenge und Aufgaben zeitlich kaum
+                                    zu schaffen sind, wenn man sich nicht extrem gut organisiert. Mein Ziel ist es,
+                                    in diesem Jahr bis zum Start bei adidas das Maximum herauszuholen: fachliche Tiefe,
+                                    Disziplin und saubere Selbstorganisation.
                                 </p>
                             </div>
                         </article>
@@ -91,6 +91,7 @@
                 </div>
             </section>
             <section class="hero">
+                <section class="tech-section">
             <div class="collectionName">
                         <span class="eyebrow">02 / live progress</span>
                         <h2>The 3 Steps Live</h2>
@@ -122,46 +123,50 @@
                     </div>
                     <div class="collectionName">
                         <span class="eyebrow">03 / technologie</span>
-                        <h2>The Tech</h2>
+                        <h2>The Backend</h2>
                         <p class="small-lead">Die Technik dahinter.</p>
                      <ol class="tech-path">
                         <li>
                             <p class="eyebrow">01 / Erfassen</p>
                             <span class="tech-dot"></span>
-                            <p class="xsmall-lead">Chrome Extension erkennt aktive Lern-Tabs.</p>
+                            <p class="xsmall-lead">Die Chrome Extension prüft jede Minute via chrome.alarms, ob der aktive Tab auf der Allowlist steht – cs50.harvard.edu, MIT OpenCourseWare, ombplus. Nur dann wird ein Heartbeat ausgelöst.
+                            </p>
                         </li>
 
                         <li>
                             <p class="eyebrow">02 / Verarbeiten</p>
-                            <span class="dot"></span>
-                            <p class="xsmall-lead">Python & Flask validieren Heartbeats.</p>                     
+                            <span class="tech-dot"></span>
+                            <p class="xsmall-lead">Der Flask-Endpunkt /api/save prüft zuerst den API-Key im Header – kein  oder falscher Key,  kein Eintrag. Danach klassifiziert er die URL: cs50, math oder Seitentitel und schreibt den Wert in PostgreSQL.</p>                     
                         </li>
                         <li>
                              <p class="eyebrow">03 / Speichern</p>
                             <span class="tech-dot"></span>
-                            <p class="xsmall-lead">Datenbank persistiert Fokusminuten.</p>
+                            <p class="xsmall-lead">Jede bestätigte Minute landet als Zeile in einer PostgreSQL-Tabelle auf Heroku – mit Zeitstempel und Kategorie. Auch nach Browser-Neustart sind die Daten vollständig.</p>
                         </li>
                         <li>
                             <p class="eyebrow">04 / Visualisieren</p>
                             <span class="tech-dot"></span>
-                            <p class="xsmall-lead">JavaScript steuert den 30s-Live-Sync.</p>
+                            <p class="xsmall-lead">frontend.js ruft /api/get alle 30 Sekunden ab und aktualisiert die Minutenanzeige ohne Reload. Der Wert auf dem Dashboard ist nie älter als eine halbe Minute.</p>
                         </li>
-
-
                      </ol>
-
                     </div>
                     </section>
                 </section>
-                <section>
-                    <footer class= "footer-container">
-                        <div class = "footer-bar">
-                        </div>
-                    </footer>
-                </section>
         </main>
-        
-        
+        <section >
+            <footer class= "footer-container">
+                <div class = "footer-bar">
+                    <div class = "footer-bar-headline">
+                        <p class="eyebrow">Contact Information</p>
+                    </div>
+                    <div class = "footer-bar-content">
+                        <img class ="img" src ="Bilder/footer-img-telefon.png"> <span class = "footer-bar-content-info">0155 – 63199149</span>
+                        <img class ="img" src ="Bilder/footer-img-brief.png">   <span class = "footer-bar-content-info">mostclod@gmail.com</span>
+                        <img class ="img" src ="Bilder/footer-img-ort.png">     <span class = "footer-bar-content-info">Zimmerstr. 28, 64823 Groß-Umstadt</span>
+                    </div>
+                </div>
+            </footer>
+        </section>
         
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script src="swiper.js"></script>

@@ -207,9 +207,6 @@ body
     transform: scale(1.08);
 }
 
-
-
-
 /*              CARD SETTINGS                */
 
 .card
@@ -222,8 +219,6 @@ body
     filter 1s var(--transition-formula);
 }
 
-
-
 /*              CARD MEDIA                */
 
 .card .media 
@@ -233,6 +228,7 @@ body
     overflow: hidden;
     border-radius: clamp(4px, 1vw, 9px);
 }
+
 .card .media img
 {
     width: 100%;
@@ -260,9 +256,6 @@ body
     letter-spacing: -.061em;
     line-height: 1;
 }
-
-
-
 
 .small-lead
 {
@@ -315,6 +308,7 @@ body
     filter: blur(20px);
     opacity: 0.4;
 }
+
 .swiper.is-magazine .card.is-active
 {
     filter: blur(0px);
@@ -333,7 +327,6 @@ body
     padding: 40px;
     border-top: 1px solid var(--elgant-line);
 }
-
 
 .eyebrow 
 { 
@@ -388,7 +381,6 @@ h1 span
     color: var(--muted-grey);
 }
 
-
 .progress-grid 
 {
     border-left: 1px solid var(--line);
@@ -427,18 +419,18 @@ section.hero:first-of-type
     grid-template-columns: repeat(4, 1fr);
     position: relative;
 }
-.tech-path::before
+.sync-panel
 {
-    top: 0;
-    z-index: 1;
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 2px;
-    display: block;
-    background: #d0d0d0;
+    border-top: none;
+    background-color: #0e0e0e;
+    padding: 1.2rem clamp(1.5rem, 3vw, 2.6rem);
+    border-right: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
 }
+
 .tech-dot
 {
     position: absolute;
@@ -470,14 +462,12 @@ section.hero:first-of-type
     border-bottom: 1px solid var(--line);
 }
 
-
 @media(max-width: 500px)
 {
     .progress-grid li {
         min-height: 110px;
     }
 }
-
 
 .progress-grid h2
 {
@@ -499,7 +489,8 @@ section.hero:first-of-type
     justify-content: space-between;
 }
 
-.status-title{
+.status-title
+{
     white-space: nowrap;
     display: inline-flex;
     align-items: center;
@@ -550,4 +541,123 @@ section.hero:first-of-type
  width: 100%;
  background-color: var(--solar-green);
  transition: width 1s linear;
+}
+
+
+/*              Tech Page                  */ 
+
+
+
+.tech-section {
+    background-color: var(--bg-darkgrey); 
+    border: 2px solid var(--line);     
+    min-height: 100vh;                    
+    padding: 6rem 5vw;                     
+    display: flex;
+    flex-direction: column;
+    justify-content: center;              
+}
+
+
+.tech-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.tech-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.tech-path {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    padding: 0;
+    margin-top: 4rem;
+    list-style: none;
+}
+
+.tech-path li {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.tech-path li::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    width: calc(100% + 3rem); 
+    height: 2px;
+    background-color: var(--line);
+    top: 2.21rem; 
+    z-index: 0;
+}
+
+.tech-path li:last-child::before {
+    display: none;
+}
+
+
+.tech-dot {
+    position: relative;
+    z-index: 1; 
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--solar-green);
+    margin: 1rem 0 1.5rem 0;
+    box-shadow: 0 0 10px rgba(163, 250, 61, 0.4); 
+}
+
+.tech-path .xsmall-lead {
+    font-size: clamp(0.95rem, 1.2vw, 1.25rem);
+    line-height: 1.5;
+    color: var(--muted-grey);
+}
+
+.footer-container{
+    border-top: 1px solid var(--line);
+    background-color: var(--bg-darkgrey);
+}
+
+.footer-bar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 0 1.2rem 0;
+    justify-content: center;
+    min-height: 5rem; 
+}
+
+.footer-bar-headline{
+    position: relative;
+}
+
+.footer-bar-content{
+    display: flex; 
+    gap: clamp(1rem, 2vw, 2.5rem);;
+    margin-top: 1.4rem;
+    align-items: center;
+}
+
+.footer-bar-content img{
+     max-width: 2vw;
+     aspect-ratio: 1/1;
+     border-radius: 50%;
+     object-fit: contain;
+     margin-right: 0.5rem ;
+     margin-left: 2rem;
+}
+
+.footer-bar-content-info{
+
+    font-size: 0.9rem;
+    color: var(--muted-grey);
 }
