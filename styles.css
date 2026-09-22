@@ -37,8 +37,15 @@ section:nth-of-type(even)
 {
     background: var(--bg-darkgrey);
 }
+html::-webkit-scrollbar {
+    display: none;
+}
+
 html, body{
+    -ms-overflow-style: none;
     scroll-behavior: smooth;
+    scrollbar-width: none;
+
     /*overflow-x: hidden;*/
 }
 
@@ -256,7 +263,9 @@ body
     max-width: 20rem;
 } 
 
-
+.swiper{
+    overflow: visible;
+}
 
 /*              CARD CONTENT                */
 
