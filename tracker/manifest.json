@@ -3,10 +3,12 @@
     "name": "Lern-Tracker",
     "version": "1.0",
     "permissions": ["tabs", "alarms", "storage"],
+    "host-permisions": ["https://mostafa.herokuapp.com/*"],
     "background":
     {
         "service_worker": "background.js"
     }
+
 
 
 }
