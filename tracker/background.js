@@ -27,7 +27,7 @@ chrome.alarms.onAlarm.addListener(async function(alarms){
                     {
                         console.log(`current tab check: ${currenttab["url"]}\n site is: ${site} `);
                         fetch(
-                            "https://mostafa.herokuapp.com/api/save" ,{
+                            "https://mostafa-0332d148cf7e.herokuapp.com/api/save" ,{
                                 "method": "POST", 
                                 "headers": {
                                     "Content-Type": "application/json",
