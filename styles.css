@@ -23,6 +23,12 @@
 {
     max-width: 1800px;
 }
+
+a[href^="tel"], a[href^="malito"] ,a[href^="https"]{
+    color: inherit; 
+    text-decoration: none; 
+  }
+  
 .hero 
 {
     min-height: calc(100vh - 75px); /*75px from the navbar!*/
@@ -262,8 +268,6 @@ body
 
 .small-lead
 {
-   /* margin: clamp(0.55rem, 1vw, 30px) 0px clamp(10px, 1vh, 30px) 0px;*/
-    /*font-size: clamp(1rem,1.3vw, 2rem);*/
     line-height: 1.2;
     color: #d0d0d0;
     max-width: 20rem;
@@ -345,14 +349,6 @@ body
     position: relative;
     z-index: 1;
 }
- /* section.hero:first-of-type .eyebrow 
-{ 
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.85);
-    font-weight: bold;
-    text-transform: uppercase; 
-    letter-spacing: .12em;
-}  */
 
 h1
 {
@@ -390,13 +386,6 @@ h1 span
     border-top: 1px solid var(--line);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-}
-
-/* for smartphones and the like */
-@media (max-width: 769px){
-    .progress-grid{
-        grid-template-columns: 1fr;
-    }
 }
 
 section.hero:first-of-type
@@ -442,7 +431,7 @@ section.hero:first-of-type
 
 .three-stripes span
 {
-   background-color: rgba(242, 242, 242, 0.90);
+   background-color: rgb(247, 247, 247);
     width: clamp(12px, 2.5vw, 45px);
    height: 100%;
 }
@@ -649,6 +638,14 @@ section.hero:first-of-type
     font-size: 0.9rem;
     color: var(--muted-grey);
 }
+
+.footer-bar-content-info {
+    display: flex;
+    align-items: center;
+    color: inherit; 
+    text-decoration: none;
+}
+
 @media(max-width: 500px)
 {
     .progress-grid li {
@@ -664,6 +661,10 @@ section.hero:first-of-type
 }
 
 @media (max-width: 768px) {
+    .progress-grid{
+        grid-template-columns: 1fr;
+    }
+
     .tech-path {
         grid-template-columns: 1fr;
         gap: 2.5rem;
