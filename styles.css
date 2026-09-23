@@ -708,4 +708,34 @@ section.hero:first-of-type
         width: 80%;
     }
 
+    .footer-bar-content-info{
+
+        font-size: 0.8rem;
+    }
+
+    .footer-bar-content img{
+
+        margin-right: 0.6rem;
+   }
+
+       .navbar {
+        padding: 0 16px;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        height: auto;
+        min-height: 320px;
+        padding: 2rem 0;
+        gap: 1.2rem;
+    }
+
+    .nav-menu-box {
+        width: 80%;
+
+        aspect-ratio: auto;
+        padding: 1.5rem 1.8rem;
+
+    }
+
 }
