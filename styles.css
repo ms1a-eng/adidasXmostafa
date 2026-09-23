@@ -33,10 +33,13 @@
     border-bottom: 1px solid var(--line);
 }
 
+/*
 section:nth-of-type(even)
 {
     background: var(--bg-darkgrey);
 }
+*/
+
 html::-webkit-scrollbar {
     display: none;
 }
@@ -45,8 +48,7 @@ html, body{
     -ms-overflow-style: none;
     scroll-behavior: smooth;
     scrollbar-width: none;
-
-    /*overflow-x: hidden;*/
+    overflow-x: clip;
 }
 
 *, *::before, *::after
@@ -172,6 +174,7 @@ body
 .nav-menu-box  
 {
     display: flex;
+
     color: var(--text-color);
     font-size: clamp(20px, 3vw, 35px);
     text-decoration: none;
@@ -436,12 +439,6 @@ section.hero:first-of-type
     position: absolute;
 
 }
-@media(max-width: 600px) { 
-    .three-stripes{
-    right: 2vw;
-    opacity: 0.65;
-    }
-}
 
 .three-stripes span
 {
@@ -460,13 +457,6 @@ section.hero:first-of-type
     min-height: 220px;
     border-right: 1px solid var(--line); 
     border-bottom: 1px solid var(--line);
-}
-
-@media(max-width: 500px)
-{
-    .progress-grid li {
-        min-height: 110px;
-    }
 }
 
 .progress-grid h2
@@ -548,9 +538,7 @@ section.hero:first-of-type
 
 
 
-.tech-section {
-    background-color: var(--bg-darkgrey); 
-    border: 2px solid var(--line);     
+.tech-section {   
     min-height: 100vh;                    
     padding: 6rem 5vw;                     
     display: flex;
@@ -660,4 +648,63 @@ section.hero:first-of-type
 
     font-size: 0.9rem;
     color: var(--muted-grey);
+}
+@media(max-width: 500px)
+{
+    .progress-grid li {
+        min-height: 110px;
+    }
+}
+
+@media(max-width: 600px) { 
+    .three-stripes{
+    right: 2vw;
+    opacity: 0.65;
+    }
+}
+
+@media (max-width: 768px) {
+    .tech-path {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .tech-path li {
+        padding-left: 2.5rem;
+    }
+
+    .tech-dot {
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: 0;
+    }
+
+    .tech-path li::before {
+        left: 7px;
+        top: 16px;
+        width: 2px;
+        height: calc(100% + 2.5rem);
+    }
+
+    .footer-bar-content img {
+        max-width: 5vw;
+        margin-right: -0.5rem;
+        margin-left: 1rem;
+    }
+
+    .footer-bar{
+        min-height:3rem;
+    }
+
+    .swiper-wrapper{
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+    }
+
+    .card{
+        width: 80%;
+    }
+
 }

@@ -1,13 +1,16 @@
 const swiper = new Swiper(".swiper", {
     slidesPerView: "auto",
+    enabled:false,
     spaceBetween: 8, 
     breakpoints: {
         768:{
-            spaceBetween: 14
+            spaceBetween: 14,
+            enabled:true,
         },
         1024:
         {
-            spaceBetween:21
+            spaceBetween:21,
+            enabled:true,
         }
     },
     slideToClickedSlide: true, 
@@ -16,28 +19,31 @@ const swiper = new Swiper(".swiper", {
 );
 
 
-swiper.on("click", function(){
 
-    const clicked = swiper.clickedSlide; 
-    if(!clicked) return;
-    const swiperEl = document.querySelector(".swiper");
-    const isAlreadyActive = clicked.classList.contains("is-active");
-    for(const card of document.querySelectorAll(".card"))
-    {
+const cards = document.querySelectorAll(".card");
+const swiperEl = document.querySelector(".swiper");
+
+cards.forEach(card => {
+
+    card.addEventListener("click",function(){
+        const isAlreadyActive = card.classList.contains("is-active");
         card.classList.remove("is-active");
-    }
 
-    if(isAlreadyActive)
-    {
-        swiperEl.classList.remove("is-magazine");
-    }
-    
-    else
-    {
-        clicked.classList.add("is-active");
-        swiperEl.classList.add("is-magazine");
-    }
+        cards.forEach(cd => cd.classList.remove("is-active"));
+
+        if(isAlreadyActive){
+
+            swiperEl.classList.remove("is-magazine");
+        
+        }else{
+
+            card.classList.add("is-active");
+            swiperEl.classList.add("is-magazine");
+        }
+    });
 });
+
+
 
 const toggle = document.querySelector(".nav-switch-toggle");
 const navEl = document.querySelector(".nav-menu");
