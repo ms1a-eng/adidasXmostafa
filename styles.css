@@ -669,8 +669,4 @@ section.hero:first-of-type
         width: 80%;
         aspect-ratio: auto;
     }
-    .card {
-        width: 85vw;
-    }
-
 }
