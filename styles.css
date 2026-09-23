@@ -661,3 +661,16 @@ section.hero:first-of-type
     font-size: 0.9rem;
     color: var(--muted-grey);
 }
+
+@media (max-width:768px){
+    .nav-menu{
+        flex-direction: column;
+        padding: 12px 0;
+        width: 80%;
+        aspect-ratio: auto;
+    }
+    .card {
+        width: 85vw;
+    }
+
+}
