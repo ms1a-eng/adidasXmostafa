@@ -1,6 +1,6 @@
 # 3 Stripes. 3 Steps.
 
-Website: mostafa.page
+Website: https://mostafa.page
 Bewerbung: Duales Studium IT / Cyber Security 2027 bei adidas  
 
 ---
