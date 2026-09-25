@@ -387,6 +387,31 @@ h1 span
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
+.before-launch
+{
+    text-transform:none;
+    position: relative;
+    cursor: pointer;
+    transition: visibility 2s var(--transition-formula),
+                opacity 2s var(--transition-formula);
+}
+.before-launch:hover .proof-box 
+{
+    visibility: visible;
+    opacity: 1;
+}
+.proof-box 
+{
+    position: fixed;
+    font-size: 0.8rem;
+    opacity: 0;
+    border: 1px solid var(--line);
+    padding: 0.5em 0.5em;
+    background-color: #0e0e0e;
+    color: var(--text-color); 
+    text-decoration: none;
+}
+
 
 section.hero:first-of-type
 {
@@ -426,7 +451,6 @@ section.hero:first-of-type
 .tech-dot
 {
     position: absolute;
-
 }
 
 .three-stripes span

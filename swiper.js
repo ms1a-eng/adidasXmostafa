@@ -53,3 +53,12 @@ toggle.addEventListener("click", function()
     navEl.classList.toggle("is-open");
     toggle.classList.toggle("is-open");
 });
+
+const textEl = document.querySelector(".before-launch");
+const boxEl= document.querySelector(".proof-box"); 
+
+textEl.addEventListener("mousemove", function(e){
+     boxEl.style.left = e.clientX + 15 + "px";
+     boxEl.style.top = e.clientY - 15 + "px"; 
+}
+);
