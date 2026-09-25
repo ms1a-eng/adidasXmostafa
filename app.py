@@ -36,6 +36,8 @@ def save():
         name = "math"
     elif "cs50" in currenttab["url"]: 
         name = "cs50"
+    elif "https://vigilant-spoon-wvv745474x57cg95r.github.dev" in currenttab["url"]:
+        name = "cs50 coding"
     else:
         name = currenttab["title"]
      
