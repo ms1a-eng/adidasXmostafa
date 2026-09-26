@@ -21,13 +21,16 @@ chrome.alarms.onAlarm.addListener(async function(alarms){
             console.log("site is: ", tabs[0]); 
             const currenttab = tabs[0];
             if(!currenttab) return;  
+            if(currenttab.url.includes("youtube.com") && currenttab.title?.toLowerCase().includes("cs50")) currenttab.url = "cs50";
+
             for (const site of allowedSites)
                 {
                     if (currenttab.url.includes(site))
                     {
+                        
                         console.log(`current tab check: ${currenttab["url"]}\n site is: ${site} `);
                         fetch(
-                            "https://mostafa-0332d148cf7e.herokuapp.com/api/save" ,{
+                            "https://mostafa-0332d148cf7e.herokuapp.com/api/save",{
                                 "method": "POST", 
                                 "headers": {
                                     "Content-Type": "application/json",
